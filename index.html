@@ -76,10 +76,11 @@ input[type=text],input[type=number]{-webkit-user-select:text;user-select:text;fo
 #pp{position:fixed;z-index:7;display:flex;flex-direction:column;gap:3px;min-width:190px;padding:5px;background:var(--p);box-shadow:0 0 0 2px var(--d),inset 2px 2px 0 var(--hi),6px 6px 0 rgba(0,0,0,.5)}#pp .b{justify-content:flex-start;font-size:10px;min-height:38px;padding:0 12px;margin:0}
 #ex .box{width:min(360px,94%);max-height:92%;overflow:auto}.ch{display:flex;flex-wrap:wrap;gap:3px}.ch .b{flex:1 0 28%;margin:0;min-height:34px;font-size:10px;padding:0 4px}.b:disabled{opacity:.3;pointer-events:none}
 #exv{flex:none;image-rendering:pixelated;background:repeating-conic-gradient(#555566 0 25%,#3c3c4a 0 50%) 0 0/8px 8px;box-shadow:0 0 0 2px var(--d)}#exc{width:44px;height:34px;border:0;padding:0;background:none;flex:none}#exi{font-size:8px;color:#aeaec0;line-height:1.7}
-#lt{display:none;align-items:center;justify-content:center;gap:2px;padding:0 2px}
+#lt{display:none;align-items:center;gap:2px;padding:0 2px}
+#ls{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:2px;touch-action:pan-x}#ls::-webkit-scrollbar{display:none}
 #bt.lite #lt{display:flex}
 #bt.lite #sr,#bt.lite .pw{display:none}
-#lt .b{flex:none}
+#lt .b,#ls .b{flex:none}
 #cs2{margin:2px 8px 2px 2px;min-width:36px;width:36px;min-height:36px;height:36px;box-shadow:var(--ol),inset 2px 2px 0 rgba(255,255,255,.3),inset -2px -2px 0 rgba(0,0,0,.35)}
 #bt>*{animation:pop .15s steps(3)}
 #lp{--ol:0 0 0 0 transparent;position:fixed;z-index:7;display:grid;grid-template-columns:repeat(6,44px);gap:2px;padding:6px;max-height:45vh;overflow-y:auto;scrollbar-width:none;background:var(--p);box-shadow:0 0 0 2px var(--d),inset 2px 2px 0 var(--hi),6px 6px 0 rgba(0,0,0,.5);animation:pop .15s steps(3)}
@@ -93,9 +94,9 @@ input[type=text],input[type=number]{-webkit-user-select:text;user-select:text;fo
 #an{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 6px 6px;background:var(--p);box-shadow:inset 0 2px 0 #3a3a48,0 -2px 0 var(--d);position:relative;z-index:3}
 #ac{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;column-gap:10px;width:100%;max-width:480px}
 .ag{display:flex;align-items:center}
-#an .ag .b{min-width:34px;min-height:32px;margin:1px;font-size:10px}
+#an .ag .b{min-width:30px;min-height:32px;margin:1px;font-size:10px;padding-left:3px;padding-right:3px}
 #an .ag .ic{width:24px;height:24px}
-.av{min-width:28px;text-align:center;font-size:10px;text-shadow:2px 2px 0 #000}
+.av{min-width:22px;text-align:center;font-size:10px;text-shadow:2px 2px 0 #000}
 #tlw{display:flex;gap:4px;padding:4px;width:100%;max-width:480px;background:var(--d);overflow-x:auto;scrollbar-width:none;position:relative}
 #tlw::-webkit-scrollbar{display:none}
 #tlw .fc{flex:none;margin:0;width:50px;min-width:50px;height:62px;min-height:62px;padding:3px;flex-direction:column;justify-content:space-between;align-items:center;gap:2px;font-size:8px;line-height:1}
@@ -129,7 +130,9 @@ input[type=text],input[type=number]{-webkit-user-select:text;user-select:text;fo
  <div id="cvw"><canvas id="cv"></canvas><canvas id="pv" width="1" height="1"></canvas><div id="inf"></div></div>
  <div id="an" hidden>
   <div id="ac">
-   <div class="ag"><button class="b" data-an="fp" data-i="fprev" aria-label="Poprzednia klatka"></button><button class="b" id="apl" data-an="play" data-keep="1" aria-label="Odtwórz"></button><button class="b" data-an="fn" data-i="fnext" aria-label="Następna klatka"></button><button class="b" id="aon" data-an="onion" data-keep="1" data-i="onion" aria-label="Onion skin"></button><button class="b" data-an="od-" data-keep="1" aria-label="Mniej klatek onion">-</button><span class="av" id="odv">2</span><button class="b" data-an="od+" data-keep="1" aria-label="Więcej klatek onion">+</button></div>
+   <div class="ag"><button class="b" data-an="fp" data-i="fprev" aria-label="Poprzednia klatka"></button><button class="b" id="apl" data-an="play" data-keep="1" aria-label="Odtwórz"></button><button class="b" data-an="fn" data-i="fnext" aria-label="Następna klatka"></button><button class="b" id="aon" data-an="onion" data-keep="1" data-i="onion" aria-label="Onion skin"></button></div>
+<div class="ag"><button class="b" data-an="od-" data-keep="1" aria-label="Mniej klatek wstecz">-</button><span class="av" id="odv" style="color:#5a9bff">2</span><button class="b" data-an="od+" data-keep="1" aria-label="Więcej klatek wstecz">+</button></div>
+<div class="ag"><button class="b" data-an="of-" data-keep="1" aria-label="Mniej klatek do przodu">-</button><span class="av" id="ofv" style="color:#55ff77">1</span><button class="b" data-an="of+" data-keep="1" aria-label="Więcej klatek do przodu">+</button></div>
    <div class="ag"><button class="b" id="apm" data-an="pm" data-keep="1" aria-label="Tryb odtwarzania">LOOP</button></div>
    <div class="ag"><button class="b" data-an="add" data-i="add" aria-label="Nowa pusta klatka"></button><button class="b" data-an="dup" data-i="dup" aria-label="Duplikuj klatkę"></button><button class="b" data-an="del" data-i="del" aria-label="Usuń klatkę"></button><button class="b" data-an="mvl" data-i="left" aria-label="Przesuń klatkę w lewo"></button><button class="b" data-an="mvr" data-i="right" aria-label="Przesuń klatkę w prawo"></button></div>
    <div class="ag"><button class="b" data-an="du-" data-keep="1" aria-label="Krótsza klatka">-</button><span class="av" id="adv" style="min-width:56px">100ms</span><button class="b" data-an="du+" data-keep="1" aria-label="Dłuższa klatka">+</button><button class="b" data-an="dua" data-keep="1" style="font-size:8px" aria-label="Ten czas dla wszystkich klatek">WSZYSTKIE</button></div>
@@ -139,7 +142,7 @@ input[type=text],input[type=number]{-webkit-user-select:text;user-select:text;fo
  <div id="bt">
   <div class="wrap" id="sr"><button class="b" id="cs" data-a="padd" aria-label="Kolor"></button><input id="sl" type="range" min="1" max="32" value="1"><span id="sv">1px</span><button class="b" data-a="pals" data-i="pal" aria-label="Palety" style="flex:none;margin:0;min-width:36px;width:36px;min-height:32px"></button><button class="b" data-a="lite" data-i="down" aria-label="Zwiń panel" style="flex:none;margin:0;min-width:36px;width:36px;min-height:32px"></button></div>
   <div class="wrap pw"><div id="pn"><div id="pr"></div><div id="tl"></div></div></div>
-  <div class="wrap" id="lt"><button class="b" id="cs2" data-a="lpal" aria-label="Kolor"></button><button class="b" data-t="pen" data-i="pen" aria-label="Ołówek"></button><button class="b" data-t="era" data-i="era" aria-label="Gumka"></button><button class="b" data-t="fill" data-i="fill" aria-label="Wiadro"></button><button class="b" data-t="pick" data-i="pick" aria-label="Pipeta"></button><button class="b" data-t="hand" data-i="hand" aria-label="Dłoń"></button><button class="b" data-a="lite" data-i="up" aria-label="Rozwiń panel"></button></div>
+  <div class="wrap" id="lt"><button class="b" id="cs2" data-a="lpal" aria-label="Kolor"></button><div id="ls"></div><button class="b" data-a="lite" data-i="up" aria-label="Rozwiń panel"></button></div>
  </div>
  <div class="sheet" id="ps" hidden>
   <div id="pl" style="display:flex;flex-direction:column;gap:4px"></div>
@@ -160,7 +163,7 @@ input[type=text],input[type=number]{-webkit-user-select:text;user-select:text;fo
  <div id="hm"></div><div id="pp" hidden></div><div id="lp" hidden></div>
  <div class="modal" id="dg" hidden><div class="box">
   <div>Nowy obraz</div>
-  <div class="row"><button class="b on" style="flex:1" data-p="16">16</button><button class="b" style="flex:1" data-p="32">32</button><button class="b" style="flex:1" data-p="64">64</button><button class="b" style="flex:1" data-p="128">128</button></div>
+  <div class="row"><button class="b" style="flex:1" data-p="16">16</button><button class="b" style="flex:1" data-p="32">32</button><button class="b" style="flex:1" data-p="64">64</button><button class="b" style="flex:1" data-p="128">128</button></div>
   <label>SZEROKOŚĆ</label><input type="number" id="nw" value="64" min="1" max="256">
   <label>WYSOKOŚĆ</label><input type="number" id="nh" value="64" min="1" max="256">
   <div class="row"><button class="b" style="flex:1" data-a="ok">Utwórz</button><button class="b" style="flex:1" data-a="no">Anuluj</button></div>
@@ -226,13 +229,13 @@ const $=s=>document.querySelector(s),cache={};
 function ic(n){if(!cache[n]){const c=document.createElement('canvas');c.width=c.height=128;const g=c.getContext('2d');IC[n].split('/').forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch=='#')g.fillRect(x*8,y*8,8,8)}));cache[n]=c.toDataURL()}return`<i class="ic" style="--m:url(${cache[n]})"></i>`}
 document.querySelectorAll('[data-i]').forEach(e=>e.insertAdjacentHTML('beforeend',ic(e.dataset.i)));
 const TN={pen:'Ołówek',era:'Gumka',fill:'Wiadro',pick:'Pipeta',line:'Linia',rect:'Prostokąt',ell:'Elipsa',tri:'Trójkąt',sel:'Zaznacz',wand:'Różdżka',shade:'Cieniuj',recol:'Zamień kolor',clip:'Schowek',flip:'Odbij',move:'Przesuń',hand:'Dłoń'};
-$('#tl').innerHTML=[['t','pen'],['t','era'],['t','fill'],['t','pick'],['t','line'],['t','rect'],['t','ell'],['t','tri'],['a','fm','solid'],['a','mir','mir'],['t','shade'],['t','recol'],['t','sel'],['t','wand'],['t','move'],['a','clip','clip'],['a','flip','fliph'],['a','clr','x'],['t','hand']]
- .map(([k,n,i])=>`<button class="b" data-${k}="${n}" aria-label="${TN[n]||n}">${ic(i||n)}</button>`).join('');
+const TBH=[['t','pen'],['t','era'],['t','fill'],['t','pick'],['t','line'],['t','rect'],['t','ell'],['t','tri'],['a','fm','solid'],['a','mir','mir'],['t','shade'],['t','recol'],['t','sel'],['t','wand'],['t','move'],['a','clip','clip'],['a','flip','fliph'],['a','clr','x'],['t','hand']]
+ .map(([k,n,i])=>`<button class="b" data-${k}="${n}" aria-label="${TN[n]||n}">${ic(i||n)}</button>`).join('');$('#tl').innerHTML=TBH;$('#ls').innerHTML=TBH;
 let PAL=['#000000','#222034','#45283c','#663931','#8f563b','#df7126','#d9a066','#eec39a','#fbf236','#99e550','#6abe30','#37946e','#306082','#5b6ee1','#639bff','#5fcde4','#cbdbfc','#ffffff','#9badb7','#76428a','#ac3232','#d95763','#d77bba'];
 const cv=$('#cv'),cx=cv.getContext('2d');
 let wm='c',lm='h',smd='l',rcm='l',clip=null;
 let w,h,layers,cur,hist=[],redo=[],tool='pen',col=[217,87,99,255],grid=false,fm=false,mir=false,hv=null,z=8,ox=0,oy=0,nc=1,off,og,chk,tmp,tg,st=null,pan=null,g=null,blocked=false,bs=1,sel=null,pT;
-let fd=[100],cf=0,animMode=false,animLite=false,onion=false,onD=2,onDir=1,pm='l',playing=false,pTimer=null,pf=0,pdir=1,onv,otmp,onDirty=true;
+let fd=[100],cf=0,animMode=false,animLite=false,onion=false,onD=2,onF=1,pm='l',playing=false,pTimer=null,pf=0,pdir=1,onv,otmp,onDirty=true;
 const hex=c=>'#'+c.slice(0,3).map(v=>v.toString(16).padStart(2,'0')).join('');
 const rgb=s=>[1,3,5].map(i=>parseInt(s.substr(i,2),16)).concat(255);
 const mkc=(W,H)=>{const c=document.createElement('canvas');c.width=W;c.height=H;return c};
@@ -253,7 +256,7 @@ function tlMark(){const T=$('#tlw');[...T.children].forEach((c,i)=>c.classList.t
 function tlBuild(){const T=$('#tlw');T.innerHTML=fd.map((m,f)=>`<button class="b fc ${f==cf?'on':''}" data-fr="${f}" aria-label="Klatka ${f+1}"><canvas width="${w}" height="${h}"></canvas><span><i>${f+1}</i><em>${m}</em></span></button>`).join('')+`<button class="b fc fa" data-an="add" aria-label="Nowa klatka">${ic('add')}</button>`;
  [...T.querySelectorAll('canvas')].forEach((c,f)=>{compF(f,otmp);c.getContext('2d').drawImage(otmp,0,0)});tlMark()}
 function tlThumb(f){const c=$('#tlw').children[f];if(!c)return;const k=c.querySelector('canvas');if(!k)return;compF(f,otmp);const q=k.getContext('2d');q.clearRect(0,0,w,h);q.drawImage(otmp,0,0)}
-function animUI(){playUI();$('#aon').classList.toggle('on',onion);$('#odv').textContent=onD;$('#apm').textContent=pm=='p'?'PING':'LOOP';$('#adv').textContent=fd[cf]+'ms';$('[data-an=del]').disabled=fd.length<2;$('[data-an=mvl]').disabled=cf==0;$('[data-an=mvr]').disabled=cf==fd.length-1;tlBuild()}
+function animUI(){playUI();$('#aon').classList.toggle('on',onion);$('#odv').textContent=onD;$('#ofv').textContent=onF;$('#apm').textContent=pm=='p'?'PING':'LOOP';$('#adv').textContent=fd[cf]+'ms';$('[data-an=del]').disabled=fd.length<2;$('[data-an=mvl]').disabled=cf==0;$('[data-an=mvr]').disabled=cf==fd.length-1;tlBuild()}
 function animAct(a){
  if(a=='play'){playing?stopPlay():play();return}
  if(a=='add'){frameAdd(0);return}
@@ -264,13 +267,13 @@ function animAct(a){
  if(a=='fp'){setFrame(cf-1);return}
  if(a=='fn'){setFrame(cf+1);return}
  if(a=='onion'){onion=!onion;onDirty=true;animUI();render();persist();toast(onion?'Onion skin: wł.':'Onion skin: wył.');return}
- if(a=='od-'||a=='od+'){onD=Math.max(1,Math.min(5,onD+(a=='od+'?1:-1)));onDirty=true;animUI();render();persist();return}
- if(a=='odir'){onDir=onDir==1?2:1;onDirty=true;animUI();render();persist();toast(onDir==2?'Onion: poprzednie i następne':'Onion: tylko poprzednie');return}
+ if(a=='od-'||a=='od+'){onD=Math.max(0,Math.min(5,onD+(a=='od+'?1:-1)));onDirty=true;animUI();render();persist();return}
+ if(a=='of-'||a=='of+'){onF=Math.max(0,Math.min(5,onF+(a=='of+'?1:-1)));onDirty=true;animUI();render();persist();return}
  if(a=='pm'){pm=pm=='l'?'p':'l';animUI();persist();toast(pm=='p'?'Tryb: ping-pong':'Tryb: pętla');return}
  if(a=='du-'||a=='du+'){const v=fd[cf],n=a=='du+'?DUR.find(x=>x>v):[...DUR].reverse().find(x=>x<v);if(n){push();fd[cf]=n;animUI();persist()}return}
  if(a=='dua'){push();fd.fill(fd[cf]);animUI();persist();toast('Wszystkie klatki: '+fd[cf]+' ms')}}
 function buildOnion(){onDirty=false;const g2=onv.getContext('2d');g2.clearRect(0,0,w,h);const N=fd.length;
- for(let d=onD;d>=1;d--)for(const s of onDir==2?[-1,1]:[-1]){const f=cf+s*d;if(f<0||f>=N)continue;compF(f,otmp);const q=otmp.getContext('2d');q.globalCompositeOperation='source-atop';q.fillStyle=s<0?'rgba(70,140,255,.85)':'rgba(70,255,110,.85)';q.fillRect(0,0,w,h);q.globalCompositeOperation='source-over';g2.globalAlpha=.5*(1-(d-1)/(onD+1));g2.drawImage(otmp,0,0)}
+ const dm=Math.max(onD,onF);for(let d=dm;d>=1;d--)for(const s of [-1,1]){if(d>(s<0?onD:onF))continue;const f=cf+s*d;if(f<0||f>=N)continue;compF(f,otmp);const q=otmp.getContext('2d');q.globalCompositeOperation='source-atop';q.fillStyle=s<0?'rgba(70,140,255,.85)':'rgba(70,255,110,.85)';q.fillRect(0,0,w,h);q.globalCompositeOperation='source-over';g2.globalAlpha=.5*(1-(d-1)/(dm+1));g2.drawImage(otmp,0,0)}
  g2.globalAlpha=1}
 function setAnim(v){stopPlay();const o=cv.height;animMode=v;
  if(v){animLite=!lite;if(!lite)setLite(true,false,true)}else{if(animLite&&lite)setLite(false,false,true);animLite=false}
@@ -299,7 +302,7 @@ function render(){if(!layers)return;comp();cx.imageSmoothingEnabled=false;cx.cle
 function ui(){
  $('#pr').innerHTML=PAL.map((c,i)=>`<button class="b sw ${c==hex(col)?'sel':''}" style="background:${c}" data-c="${i}" aria-label="${c}"></button>`).join('')+`<button class="b sw" data-a="padd" aria-label="Dodaj kolor">${ic('add')}</button>`;
  $('#ci').value=hex(col);$('#cs').style.background=$('#cs2').style.background=hex(col);
- document.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t==tool));
+ document.querySelectorAll('[data-t]').forEach(b=>b.classList.toggle('on',b.dataset.t==tool));{const S=$('#ls'),a=S.querySelector('.on');if(a&&S.clientWidth){const l=a.offsetLeft-S.offsetLeft,r=l+a.offsetWidth;if(l<S.scrollLeft)S.scrollLeft=l-2;else if(r>S.scrollLeft+S.clientWidth)S.scrollLeft=r-S.clientWidth+2}}
  $('[data-a=fm]').classList.toggle('on',fm);$('[data-a=mir]').classList.toggle('on',mir);
  $('#bg').classList.toggle('on',grid);
  $('#ll').innerHTML=layers.map((l,i)=>`<div class="row ${l.v?'':'hid'}"><button class="b" data-v="${i}">${ic('eye')}</button><button class="b nm ${i==cur?'on':''}" data-s="${i}"><canvas class="th" width="${w}" height="${h}" data-k="${i}"></canvas><span>${l.n}</span></button>${i==cur?`<button class="b" data-rn="${i}" aria-label="Zmień nazwę">${ic('pen')}</button>`:''}<button class="b ${l.k?'on':''}" data-lk="${i}" aria-label="Blokada">${ic(l.k?'lock':'unlock')}</button></div>`).reverse().join('');
@@ -425,7 +428,7 @@ function menuLbl(){$('#mt').textContent='Kafelki: '+(tile?'wł.':'wył.');$('#mp
 function pngOut(k){comp();const c=mkc(w*k,h*k),q=c.getContext('2d');q.imageSmoothingEnabled=false;q.drawImage(off,0,0,w*k,h*k);c.toBlob(b=>dl(b,'obraz.png'))}
 const URLC=new WeakMap();
 function cel2url(a,isCur){if(!isCur&&URLC.has(a))return URLC.get(a);tg.putImageData(new ImageData(a,w,h),0,0);const u=tmp.toDataURL();if(!isCur)URLC.set(a,u);return u}
-function proj(){return{app:'pikselarnia',v:2,w,h,pal:PAL,fd,pm,on:[onion?1:0,onD,onDir],layers:layers.map(l=>({n:l.n,v:l.v,o:l.o,k:l.k,cels:l.c.map((a,i)=>cel2url(a,i==cf))}))}}
+function proj(){return{app:'pikselarnia',v:2,w,h,pal:PAL,fd,pm,on:[onion?1:0,onD,1],onf:onF,layers:layers.map(l=>({n:l.n,v:l.v,o:l.o,k:l.k,cels:l.c.map((a,i)=>cel2url(a,i==cf))}))}}
 function save(){openEx()}
 const EX={f:'png',k:0,bg:'t',ly:'v'},EXT={atlas:'zip',png:'png',jpg:'jpg',webp:'webp',bmp:'bmp',svg:'svg',zip:'zip',json:'json',gif:'gif',apng:'png',sheet:'png',frames:'zip'},HINT={atlas:'ZIP: arkusz PNG + JSON z klatkami i czasami (jak Aseprite)',png:'Bez strat, z przezroczystością',jpg:'Mały plik, bez przezroczystości',webp:'Mały plik, z przezroczystością',bmp:'Surowa bitmapa, bez przezroczystości',svg:'Wektor, powiększysz bez rozmycia',zip:'Każda warstwa jako osobny PNG',json:'Cała praca z warstwami i klatkami, do ponownego otwarcia',gif:'Animowany GIF, przezroczystość 1-bitowa',apng:'Animowany PNG, pełna przezroczystość',sheet:'Wszystkie klatki w jednym PNG (siatka, bez opisu)',frames:'Klatki jako PNG + animacja.json (ZIP)'};
 const isDef=n=>!n||/^Praca \d+$/.test(n)||n=='Stara praca',KS=[1,2,4,8,16,32],okK=k=>w*k<=4096&&h*k<=4096&&(!isAnim(EX.f)||w*k*h*k*fd.length<=(EX.f=='sheet'||EX.f=='atlas'?16e6:15e6));
@@ -509,7 +512,7 @@ async function dupP(id){const r=LIST.find(x=>x.id==id);await tx('readwrite',s=>s
 async function rmP(id){if(arm!=id){arm=id;setTimeout(()=>arm=null,2200);toast('Stuknij ponownie, by usunąć');return}arm=null;await tx('readwrite',s=>s.delete(id));home()}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)saveNow()});
 const px=(im,W,H)=>{const c=mkc(W,H),q=c.getContext('2d');q.drawImage(im,0,0);return q.getImageData(0,0,W,H).data};
-async function loadProj(j){const ls=await Promise.all(j.layers.map(async l=>{const U=l.cels||[l.png],c=await Promise.all(U.map(async u=>px(await loadImg(u),j.w,j.h)));return LY(l.n,l.v,c,l.o,l.k)}));const N=Math.max(...ls.map(l=>l.c.length));ls.forEach(l=>{while(l.c.length<N)l.c.push(new Uint8ClampedArray(j.w*j.h*4))});if(j.pal)PAL=j.pal;pm=j.pm=='p'?'p':'l';if(j.on){onion=!!j.on[0];onD=Math.max(1,Math.min(5,j.on[1]|0||2));onDir=1}mk(j.w,j.h,ls,j.fd&&j.fd.length==N?j.fd:Array(N).fill(100))}
+async function loadProj(j){const ls=await Promise.all(j.layers.map(async l=>{const U=l.cels||[l.png],c=await Promise.all(U.map(async u=>px(await loadImg(u),j.w,j.h)));return LY(l.n,l.v,c,l.o,l.k)}));const N=Math.max(...ls.map(l=>l.c.length));ls.forEach(l=>{while(l.c.length<N)l.c.push(new Uint8ClampedArray(j.w*j.h*4))});if(j.pal)PAL=j.pal;pm=j.pm=='p'?'p':'l';if(j.on){onion=!!j.on[0];onD=Math.max(0,Math.min(5,Number.isFinite(j.on[1])?j.on[1]|0:2))}onF=Math.max(0,Math.min(5,j.onf|0));mk(j.w,j.h,ls,j.fd&&j.fd.length==N?j.fd:Array(N).fill(100))}
 $('#fi').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;
  try{if(/\.json$/i.test(f.name)){await loadProj(JSON.parse(await f.text()))}
   else{const u=URL.createObjectURL(f),im=await loadImg(u);if(im.width>256||im.height>256){toast('Maks. 256x256');return}
@@ -517,6 +520,8 @@ $('#fi').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)re
  catch(x){toast('Nie udało się otworzyć pliku')}};
 $('#ci').oninput=e=>{col=rgb(e.target.value);ui()};$('#ci').onchange=e=>{if(!PAL.includes(e.target.value))PAL.push(e.target.value);ui()};
 $('#exc').oninput=()=>{EX.bg='c';exUI()};
+function syncP(){const a=$('#nw').value,b=$('#nh').value;document.querySelectorAll('[data-p]').forEach(x=>x.classList.toggle('on',a===b&&a===x.dataset.p))}
+$('#nw').oninput=$('#nh').oninput=syncP;syncP();
 $('#lo').oninput=e=>{layers[cur].o=e.target.value/100;onDirty=true;e.target.style.setProperty('--v',e.target.value+'%');render();persist()};
 $('#sl').oninput=e=>setBs(+e.target.value);
 let rnI=-1;
@@ -544,14 +549,14 @@ document.addEventListener('click',e=>{
  if(d.v){if(layers[d.v].k){toast('Warstwa zablokowana');return}layers[d.v].v=layers[d.v].v?0:1;ui();return}
  if(d.s){cur=+d.s;ui();return}
  if(d.rn){openRn(+d.rn);return}
- if(d.p){$('#nw').value=$('#nh').value=d.p;document.querySelectorAll('[data-p]').forEach(b=>b.classList.toggle('on',b==t));return}
+ if(d.p){$('#nw').value=$('#nh').value=d.p;syncP();return}
  if(d.pp){const p=allP()[+d.pp];PAL=p.c.slice();col=rgb(PAL[0]);$('#ps').hidden=true;ui();toast('Paleta: '+p.n);return}
  if(d.pd){CP.splice(+d.pd,1);saveCP();palUI();return}
  if(d.o){openP(d.o);return}if(d.dup){dupP(d.dup);return}if(d.rm){rmP(d.rm);return}
  const a=d.a;if(!a)return;
  if(a=='menu'){menuLbl();$('#mf').hidden=!$('#mf').hidden;if(!$('#mf').hidden)$('#sh').hidden=$('#ps').hidden=true}
  else $('#mf').hidden=true;
- if(a=='new')$('#dg').hidden=false;
+ if(a=='new'){$('#dg').hidden=false;syncP()}
  if(a=='no')$('#dg').hidden=true;
  if(a=='rok')doRn();
  if(a=='rno')$('#rn').hidden=true;
